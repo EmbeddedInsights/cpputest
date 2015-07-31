@@ -50,6 +50,8 @@ set(CppUTest_headers
 add_library(CppUTest STATIC ${CppUTest_src} ${CppUTest_headers})
 if (WIN32)
     target_link_libraries(CppUTest winmm.lib)
+	add_definitions(-D_CRT_SECURE_NO_DEPRECATE)
+	add_definitions(-D_CRT_NONSTDC_NO_DEPRECATE)
 endif (WIN32)
 install(FILES ${CppUTest_headers} DESTINATION include/CppUTest)
 install(TARGETS CppUTest

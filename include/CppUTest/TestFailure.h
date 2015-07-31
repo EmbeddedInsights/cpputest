@@ -135,6 +135,18 @@ public:
     UnsignedLongsEqualFailure(UtestShell* test, const char* fileName, int lineNumber, unsigned long expected, unsigned long actual, const SimpleString& text);
 };
 
+class LongLongsEqualFailure : public TestFailure
+{
+public:
+    LongLongsEqualFailure(UtestShell* test, const char* fileName, int lineNumber, long long expected, long long actual, const SimpleString& text);
+};
+
+class UnsignedLongLongsEqualFailure : public TestFailure
+{
+public:
+    UnsignedLongLongsEqualFailure(UtestShell* test, const char* fileName, int lineNumber, unsigned long long expected, unsigned long long actual, const SimpleString& text);
+};
+
 class StringEqualFailure : public TestFailure
 {
 public:

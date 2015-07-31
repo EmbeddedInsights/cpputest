@@ -105,6 +105,22 @@ MockExpectedCall& MockCheckedExpectedCall::withUnsignedLongIntParameter(const Si
     return *this;
 }
 
+MockExpectedCall& MockCheckedExpectedCall::withLongLongIntParameter(const SimpleString& name, long long int value)
+{
+    MockNamedValue* newParameter = new MockExpectedFunctionParameter(name);
+    inputParameters_->add(newParameter);
+    newParameter->setValue(value);
+    return *this;
+}
+
+MockExpectedCall& MockCheckedExpectedCall::withUnsignedLongLongIntParameter(const SimpleString& name, unsigned long long int value)
+{
+    MockNamedValue* newParameter = new MockExpectedFunctionParameter(name);
+    inputParameters_->add(newParameter);
+    newParameter->setValue(value);
+    return *this;
+}
+
 MockExpectedCall& MockCheckedExpectedCall::withDoubleParameter(const SimpleString& name, double value)
 {
     MockNamedValue* newParameter = new MockExpectedFunctionParameter(name);
@@ -429,6 +445,20 @@ MockExpectedCall& MockCheckedExpectedCall::andReturnValue(unsigned long int valu
     return *this;
 }
 
+MockExpectedCall& MockCheckedExpectedCall::andReturnValue(long long int value)
+{
+    returnValue_.setName("returnValue");
+    returnValue_.setValue(value);
+    return *this;
+}
+
+MockExpectedCall& MockCheckedExpectedCall::andReturnValue(unsigned long long int value)
+{
+    returnValue_.setName("returnValue");
+    returnValue_.setValue(value);
+    return *this;
+}
+
 MockExpectedCall& MockCheckedExpectedCall::andReturnValue(const char* value)
 {
     returnValue_.setName("returnValue");
@@ -564,6 +594,21 @@ MockExpectedCall& MockExpectedCallComposite::withUnsignedLongIntParameter(const 
     return *this;
 }
 
+MockExpectedCall& MockExpectedCallComposite::withLongLongIntParameter(const SimpleString& name, long long int value)
+{
+    for (MockExpectedCallCompositeNode* node = head_; node != NULL; node = node->next_)
+        node->call_.withParameter(name, value);
+    return *this;
+}
+
+MockExpectedCall& MockExpectedCallComposite::withUnsignedLongLongIntParameter(const SimpleString& name, unsigned long long int value)
+{
+    for (MockExpectedCallCompositeNode* node = head_; node != NULL; node = node->next_)
+        node->call_.withParameter(name, value);
+    return *this;
+}
+
+
 MockExpectedCall& MockExpectedCallComposite::withDoubleParameter(const SimpleString& name, double value)
 {
     for (MockExpectedCallCompositeNode* node = head_; node != NULL; node = node->next_)
@@ -657,6 +702,20 @@ MockExpectedCall& MockExpectedCallComposite::andReturnValue(long int value)
 }
 
 MockExpectedCall& MockExpectedCallComposite::andReturnValue(unsigned long int value)
+{
+    for (MockExpectedCallCompositeNode* node = head_; node != NULL; node = node->next_)
+        node->call_.andReturnValue(value);
+    return *this;
+}
+
+MockExpectedCall& MockExpectedCallComposite::andReturnValue(long long int value)
+{
+    for (MockExpectedCallCompositeNode* node = head_; node != NULL; node = node->next_)
+        node->call_.andReturnValue(value);
+    return *this;
+}
+
+MockExpectedCall& MockExpectedCallComposite::andReturnValue(unsigned long long int value)
 {
     for (MockExpectedCallCompositeNode* node = head_; node != NULL; node = node->next_)
         node->call_.andReturnValue(value);
