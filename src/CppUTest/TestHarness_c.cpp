@@ -57,7 +57,7 @@ void CHECK_EQUAL_C_STRING_LOCATION(const char* expected, const char* actual, con
 
 void CHECK_EQUAL_C_POINTER_LOCATION(const void* expected, const void* actual, const char* fileName, int lineNumber)
 {
-    UtestShell::getCurrent()->assertPointersEqual(expected, actual, NULL, fileName, lineNumber, TestTerminatorWithoutExceptions());
+    UtestShell::getCurrent()->assertPointersEqual(expected, actual, NULL, fileName, lineNumber);
 }
 
 extern void CHECK_EQUAL_C_BITS_LOCATION(unsigned int expected, unsigned int actual, unsigned int mask, size_t size, const char* fileName, int lineNumber)
