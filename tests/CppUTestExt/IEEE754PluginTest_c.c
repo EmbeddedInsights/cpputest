@@ -36,14 +36,17 @@ void set_divisionbyzero_c(void)
     f /= 0.0f;
 }
 
-void set_overflow_c(void)
-{
+
+
+#pragma warning( push )
+#pragma warning( disable : 4756)
+void set_overflow_c(void) {
     f = 1000.0f;
     while (f < INFINITY) f *= f;
 }
+#pragma warning( pop ) 
 
-void set_underflow_c(void)
-{
+void set_underflow_c(void) {
     f = 0.01f;
     while (f > 0.0f) f *= f;
 }

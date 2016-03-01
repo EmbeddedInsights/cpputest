@@ -297,7 +297,6 @@ TEST(UnitTestMacros, TestUNSIGNED_LONG_LONGS_EQUAL_TEXT)
     runTestWithMethod(_UNSIGNED_LONG_LONGS_EQUAL_TEXTTestMethod);
     CHECK_TEST_FAILS_PROPER_WITH_TEXT("expected <1 (0x1) 0x1>");
     CHECK_TEST_FAILS_PROPER_WITH_TEXT("but was  <0 (0x0) 0x0>");
-    //CHECK_TEST_FAILS_PROPER_WITH_TEXT("Failed because it failed");
 }
 
 TEST(UnitTestMacros, UNSIGNED_LONG_LONGS_EQUAL_TEXTBehavesAsProperMacro)
