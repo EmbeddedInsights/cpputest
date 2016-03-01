@@ -579,7 +579,7 @@ SimpleString StringFrom(unsigned long i)
 
 SimpleString StringFrom(unsigned long long i)
 {
-    return StringFromFormat("%llu (0x%lx)", i, i);
+    return StringFromFormat("%llu (0x%llx)", i, i);
 }
 
 
