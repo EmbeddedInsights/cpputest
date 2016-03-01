@@ -35,4 +35,4 @@ endif (MINGW)
 
 add_executable(CppUTestExtTests ${CppUTestExtTests_src})
 target_link_libraries(CppUTestExtTests CppUTest CppUTestExt ${THREAD_LIB} ${CPPUNIT_EXTERNAL_LIBRARIES})
-#cpputest_buildtime_discover_tests (CppUTestExtTests)
+cpputest_buildtime_discover_tests (CppUTestExtTests)
