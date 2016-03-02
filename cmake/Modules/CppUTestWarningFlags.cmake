@@ -1,6 +1,6 @@
 if (MSVC)
     set(CPPUTEST_C_WARNING_FLAGS "/WX")
-    set(CPPUTEST_CXX_WARNING_FLAGS "/WX /wd4290")
+    set(CPPUTEST_CXX_WARNING_FLAGS "/WX /wd4290 /wd4756")
 else (MSVC)
     include(CheckCCompilerFlag)
     include(CheckCXXCompilerFlag)
