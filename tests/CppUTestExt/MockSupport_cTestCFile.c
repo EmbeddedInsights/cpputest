@@ -163,7 +163,7 @@ void all_mock_support_c_calls(void)
     mock_c()->setStringData("bla4", "abc");
     mock_c()->setPointerData("bla", (void*) 2);
     mock_c()->setConstPointerData("bla", (const void*) 2);
-    mock_c()->setFunctionPointerData("bla", (void (*)(void)) 2);
+    mock_c()->setFunctionPointerData("bla", (void (*)()) 2);
     mock_c()->setDataObject("bla", "type", (void*) 2);
     mock_c()->getData("bla");
 
