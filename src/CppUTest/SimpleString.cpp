@@ -473,9 +473,24 @@ SimpleString HexStringFrom(long value)
     return StringFromFormat("%lx", value);
 }
 
+SimpleString StringFrom(long long value)
+{
+	return StringFromFormat("%lld", value);
+}
+
+SimpleString HexStringFrom(long long value)
+{
+    return StringFromFormat("%llx", value);
+}
+
 SimpleString HexStringFrom(unsigned long value)
 {
     return StringFromFormat("%lx", value);
+}
+
+SimpleString HexStringFrom(unsigned long long value)
+{
+    return StringFromFormat("%llx", value);
 }
 
 static long convertPointerToLongValue(const void* value)
@@ -561,6 +576,12 @@ SimpleString StringFrom(unsigned long i)
 {
     return StringFromFormat("%lu (0x%lx)", i, i);
 }
+
+SimpleString StringFrom(unsigned long long i)
+{
+    return StringFromFormat("%llu (0x%llx)", i, i);
+}
+
 
 //Kludge to get a va_copy in VC++ V6
 #ifndef va_copy

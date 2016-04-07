@@ -229,6 +229,22 @@ MockActualCall& MockCheckedActualCall::withLongIntParameter(const SimpleString& 
     return *this;
 }
 
+MockActualCall& MockCheckedActualCall::withUnsignedLongLongIntParameter(const SimpleString& name, unsigned long long int value)
+{
+    MockNamedValue actualParameter(name);
+    actualParameter.setValue(value);
+    checkInputParameter(actualParameter);
+    return *this;
+}
+
+MockActualCall& MockCheckedActualCall::withLongLongIntParameter(const SimpleString& name, long long int value)
+{
+    MockNamedValue actualParameter(name);
+    actualParameter.setValue(value);
+    checkInputParameter(actualParameter);
+    return *this;
+}
+
 MockActualCall& MockCheckedActualCall::withDoubleParameter(const SimpleString& name, double value)
 {
     MockNamedValue actualParameter(name);
@@ -401,6 +417,32 @@ long int MockCheckedActualCall::returnLongIntValueOrDefault(long int default_val
         return default_value;
     }
     return returnLongIntValue();
+}
+
+long long int MockCheckedActualCall::returnLongLongIntValue()
+{
+    return returnValue().getLongLongIntValue();
+}
+
+long long MockCheckedActualCall::returnLongLongIntValueOrDefault(long long default_value)
+{
+    if (!hasReturnValue()) {
+        return default_value;
+    }
+    return returnLongLongIntValue();
+}
+
+unsigned long long int MockCheckedActualCall::returnUnsignedLongLongIntValue()
+{
+    return returnValue().getUnsignedLongLongIntValue();
+}
+
+unsigned long long MockCheckedActualCall::returnUnsignedLongLongIntValueOrDefault(unsigned long long default_value)
+{
+    if (!hasReturnValue()) {
+        return default_value;
+    }
+    return returnUnsignedLongLongIntValue();
 }
 
 double MockCheckedActualCall::returnDoubleValue()
@@ -587,6 +629,21 @@ MockActualCall& MockActualCallTrace::withLongIntParameter(const SimpleString& na
     return *this;
 }
 
+MockActualCall& MockActualCallTrace::withLongLongIntParameter(const SimpleString& name, long long value)
+{
+    addParameterName(name);
+    traceBuffer_ += StringFrom(value);
+    return *this;
+}
+
+MockActualCall& MockActualCallTrace::withUnsignedLongLongIntParameter(const SimpleString& name, unsigned long long value)
+{
+    addParameterName(name);
+    traceBuffer_ += StringFrom(value);
+    return *this;
+}
+
+
 MockActualCall& MockActualCallTrace::withDoubleParameter(const SimpleString& name, double value)
 {
     addParameterName(name);
@@ -675,6 +732,26 @@ unsigned long int MockActualCallTrace::returnUnsignedLongIntValue()
 }
 
 unsigned long int MockActualCallTrace::returnUnsignedLongIntValueOrDefault(unsigned long)
+{
+    return 0;
+}
+
+long long MockActualCallTrace::returnLongLongIntValue()
+{
+    return 0;
+}
+
+unsigned long long MockActualCallTrace::returnUnsignedLongLongIntValue()
+{
+    return 0;
+}
+
+long long MockActualCallTrace::returnLongLongIntValueOrDefault(long long)
+{
+    return 0;
+}
+
+unsigned long long MockActualCallTrace::returnUnsignedLongLongIntValueOrDefault(unsigned long long)
 {
     return 0;
 }

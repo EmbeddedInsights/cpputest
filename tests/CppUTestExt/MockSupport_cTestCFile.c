@@ -104,7 +104,7 @@ void all_mock_support_c_calls(void)
     mock_c()->actualCall("boo4")->returnValue();
     mock_c()->returnValue();
 
-    mock_c()->expectOneCall("boo5")->andReturnFunctionPointerValue((void(*)()) 10);
+    mock_c()->expectOneCall("boo5")->andReturnFunctionPointerValue((void(*)(void)) 10);
     mock_c()->actualCall("boo5")->returnValue();
     mock_c()->returnValue();
 
@@ -128,8 +128,8 @@ void all_mock_support_c_calls(void)
     mock_c()->expectOneCall("bla")->withConstPointerParameters("cptr", (const void*)1);
     mock_c()->actualCall("bla")->withConstPointerParameters("cptr", mock_c()->getData("ptr").value.constPointerValue);
 
-    mock_c()->setFunctionPointerData("ptr", (void(*)())1);
-    mock_c()->expectOneCall("bla")->withFunctionPointerParameters("ptr", (void(*)())1);
+    mock_c()->setFunctionPointerData("ptr", (void(*)(void))1);
+    mock_c()->expectOneCall("bla")->withFunctionPointerParameters("ptr", (void(*)(void))1);
     mock_c()->actualCall("bla")->withFunctionPointerParameters("ptr", mock_c()->getData("ptr").value.functionPointerValue);
 
     mock_c()->hasReturnValue();

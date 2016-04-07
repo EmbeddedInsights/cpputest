@@ -43,6 +43,8 @@ public:
     virtual MockActualCall& withUnsignedIntParameter(const SimpleString& name, unsigned int value) _override;
     virtual MockActualCall& withLongIntParameter(const SimpleString& name, long int value) _override;
     virtual MockActualCall& withUnsignedLongIntParameter(const SimpleString& name, unsigned long int value) _override;
+    virtual MockActualCall& withLongLongIntParameter(const SimpleString& name, long long int value) _override;
+    virtual MockActualCall& withUnsignedLongLongIntParameter(const SimpleString& name, unsigned long long int value) _override;
     virtual MockActualCall& withDoubleParameter(const SimpleString& name, double value) _override;
     virtual MockActualCall& withStringParameter(const SimpleString& name, const char* value) _override;
     virtual MockActualCall& withPointerParameter(const SimpleString& name, void* value) _override;
@@ -67,6 +69,12 @@ public:
 
     virtual unsigned int returnUnsignedIntValue() _override;
     virtual unsigned int returnUnsignedIntValueOrDefault(unsigned int default_value) _override;
+
+    virtual long long int returnLongLongIntValue() _override;
+    virtual long long int returnLongLongIntValueOrDefault(long long int default_value) _override;
+
+    virtual unsigned long long int returnUnsignedLongLongIntValue() _override;
+    virtual unsigned long long int returnUnsignedLongLongIntValueOrDefault(unsigned long long int default_value) _override;
 
     virtual const char * returnStringValueOrDefault(const char * default_value) _override;
     virtual const char * returnStringValue() _override;
@@ -151,6 +159,8 @@ public:
     virtual MockActualCall& withUnsignedIntParameter(const SimpleString& name, unsigned int value) _override;
     virtual MockActualCall& withLongIntParameter(const SimpleString& name, long int value) _override;
     virtual MockActualCall& withUnsignedLongIntParameter(const SimpleString& name, unsigned long int value) _override;
+    virtual MockActualCall& withLongLongIntParameter(const SimpleString& name, long long int value) _override;
+    virtual MockActualCall& withUnsignedLongLongIntParameter(const SimpleString& name, unsigned long long int value) _override;
     virtual MockActualCall& withDoubleParameter(const SimpleString& name, double value) _override;
     virtual MockActualCall& withStringParameter(const SimpleString& name, const char* value) _override;
     virtual MockActualCall& withPointerParameter(const SimpleString& name, void* value) _override;
@@ -172,6 +182,12 @@ public:
 
     virtual long int returnLongIntValue() _override;
     virtual long int returnLongIntValueOrDefault(long int default_value) _override;
+
+    virtual long long int returnLongLongIntValue() _override;
+    virtual long long int returnLongLongIntValueOrDefault(long long int default_value) _override;
+
+    virtual unsigned long long int returnUnsignedLongLongIntValue() _override;
+    virtual unsigned long long int returnUnsignedLongLongIntValueOrDefault(unsigned long long int default_value) _override;
 
     virtual unsigned int returnUnsignedIntValue() _override;
     virtual unsigned int returnUnsignedIntValueOrDefault(unsigned int default_value) _override;
@@ -212,6 +228,8 @@ public:
     virtual MockActualCall& withUnsignedIntParameter(const SimpleString&, unsigned int) _override { return *this; }
     virtual MockActualCall& withLongIntParameter(const SimpleString&, long int) _override { return *this; }
     virtual MockActualCall& withUnsignedLongIntParameter(const SimpleString&, unsigned long int) _override { return *this; }
+    virtual MockActualCall& withLongLongIntParameter(const SimpleString&, long long int) _override { return *this; }
+    virtual MockActualCall& withUnsignedLongLongIntParameter(const SimpleString&, unsigned long long int) _override { return *this; }
     virtual MockActualCall& withDoubleParameter(const SimpleString&, double) _override { return *this; }
     virtual MockActualCall& withStringParameter(const SimpleString&, const char*) _override { return *this; }
     virtual MockActualCall& withPointerParameter(const SimpleString& , void*) _override { return *this; }
@@ -233,6 +251,12 @@ public:
 
     virtual long int returnLongIntValue() _override { return 0; }
     virtual long int returnLongIntValueOrDefault(long int value) _override { return value; }
+
+    virtual long long int returnLongLongIntValue() _override { return 0; }
+    virtual long long int returnLongLongIntValueOrDefault(long long int) _override { return returnLongLongIntValue(); }
+
+    virtual unsigned long long int returnUnsignedLongLongIntValue() _override { return 0; }
+    virtual unsigned long long int returnUnsignedLongLongIntValueOrDefault(unsigned long long int) _override { return returnUnsignedLongLongIntValue(); }
 
     virtual unsigned int returnUnsignedIntValue() _override { return 0; }
     virtual unsigned int returnUnsignedIntValueOrDefault(unsigned int value) _override { return value; }

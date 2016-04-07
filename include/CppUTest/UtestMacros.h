@@ -200,6 +200,25 @@
 #define UNSIGNED_LONGS_EQUAL_LOCATION(expected, actual, text, file, line)\
   { UtestShell::getCurrent()->assertUnsignedLongsEqual((unsigned long)expected, (unsigned long)actual, text, file, line); }
 
+//Check two long long integers for equality
+#define LONG_LONGS_EQUAL(expected, actual)\
+  LONG_LONGS_EQUAL_LOCATION(expected, actual, NULL, __FILE__, __LINE__)
+
+#define LONG_LONGS_EQUAL_TEXT(expected, actual, text)\
+  LONG_LONGS_EQUAL_LOCATION(expected, actual, text, __FILE__, __LINE__)
+
+#define UNSIGNED_LONG_LONGS_EQUAL(expected, actual)\
+  UNSIGNED_LONG_LONGS_EQUAL_LOCATION(expected, actual, NULL, __FILE__, __LINE__)
+
+#define UNSIGNED_LONG_LONGS_EQUAL_TEXT(expected, actual, text)\
+  UNSIGNED_LONG_LONGS_EQUAL_LOCATION(expected, actual, text, __FILE__, __LINE__)
+
+#define LONG_LONGS_EQUAL_LOCATION(expected, actual, text, file, line)\
+    { UtestShell::getCurrent()->assertLongLongsEqual((long long)expected, (long long)actual, text, file, line); }
+
+#define UNSIGNED_LONG_LONGS_EQUAL_LOCATION(expected, actual, text, file, line)\
+    { UtestShell::getCurrent()->assertUnsignedLongLongsEqual((unsigned long long)expected, (unsigned long long)actual, text, file, line); }
+
 #define BYTES_EQUAL(expected, actual)\
     LONGS_EQUAL((expected) & 0xff,(actual) & 0xff)
 

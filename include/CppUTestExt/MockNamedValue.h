@@ -105,6 +105,8 @@ public:
     virtual void setValue(unsigned int value);
     virtual void setValue(long int value);
     virtual void setValue(unsigned long int value);
+    virtual void setValue(long long int value);
+    virtual void setValue(unsigned long long int value);
     virtual void setValue(double value);
     virtual void setValue(void* value);
     virtual void setValue(const void* value);
@@ -128,6 +130,8 @@ public:
     virtual unsigned int getUnsignedIntValue() const;
     virtual long int getLongIntValue() const;
     virtual unsigned long int getUnsignedLongIntValue() const;
+    virtual long long int getLongLongIntValue() const;
+    virtual unsigned long long int getUnsignedLongLongIntValue() const;
     virtual double getDoubleValue() const;
     virtual const char* getStringValue() const;
     virtual void* getPointerValue() const;
@@ -149,6 +153,8 @@ private:
         unsigned int unsignedIntValue_;
         long int longIntValue_;
         unsigned long int unsignedLongIntValue_;
+        long long int longLongIntValue_;
+        unsigned long long int unsignedLongLongIntValue_;
         double doubleValue_;
         const char* stringValue_;
         void* pointerValue_;

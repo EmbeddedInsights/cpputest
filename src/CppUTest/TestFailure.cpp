@@ -272,6 +272,42 @@ UnsignedLongsEqualFailure::UnsignedLongsEqualFailure(UtestShell* test, const cha
     message_ += createButWasString(expectedReported, actualReported);
 }
 
+LongLongsEqualFailure::LongLongsEqualFailure(UtestShell* test, const char* fileName, int lineNumber, long long expected, long long actual, const SimpleString& text)
+    : TestFailure(test, fileName, lineNumber)
+{
+    message_ = createUserText(text);
+
+    SimpleString aDecimal = StringFrom(actual);
+    SimpleString aHex = HexStringFrom(actual);
+    SimpleString eDecimal = StringFrom(expected);
+    SimpleString eHex = HexStringFrom(expected);
+    
+    SimpleString::padStringsToSameLength(aDecimal, eDecimal, ' ');
+    SimpleString::padStringsToSameLength(aHex, eHex, '0');
+    
+    SimpleString actualReported = aDecimal + " 0x" + aHex;
+    SimpleString expectedReported = eDecimal + " 0x" + eHex;
+    message_ = createButWasString(expectedReported, actualReported);
+}
+
+UnsignedLongLongsEqualFailure::UnsignedLongLongsEqualFailure(UtestShell* test, const char* fileName, int lineNumber, unsigned long long expected, unsigned long long actual, const SimpleString& text)
+    : TestFailure(test, fileName, lineNumber)
+{
+    message_ = createUserText(text);
+
+    SimpleString aDecimal = StringFrom(actual);
+    SimpleString aHex = HexStringFrom(actual);
+    SimpleString eDecimal = StringFrom(expected);
+    SimpleString eHex = HexStringFrom(expected);
+    
+    SimpleString::padStringsToSameLength(aDecimal, eDecimal, ' ');
+    SimpleString::padStringsToSameLength(aHex, eHex, '0');
+    
+    SimpleString actualReported = aDecimal + " 0x" + aHex;
+    SimpleString expectedReported = eDecimal + " 0x" + eHex;
+    message_ = createButWasString(expectedReported, actualReported);
+}
+
 StringEqualFailure::StringEqualFailure(UtestShell* test, const char* fileName, int lineNumber, const char* expected, const char* actual, const SimpleString& text)
 : TestFailure(test, fileName, lineNumber)
 {

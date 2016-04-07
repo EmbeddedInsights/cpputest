@@ -261,6 +261,57 @@ IGNORE_TEST(UnitTestMacros, UNSIGNED_LONGS_EQUAL_TEXTWorksInAnIgnoredTest)
     UNSIGNED_LONGS_EQUAL_TEXT(1, 0, "Failed because it failed"); // LCOV_EXCL_LINE
 } // LCOV_EXCL_LINE
 
+
+
+static void _UNSIGNED_LONG_LONGS_EQUALTestMethod()
+{
+    UNSIGNED_LONG_LONGS_EQUAL(1, 1);
+    UNSIGNED_LONG_LONGS_EQUAL(1, 0);
+} // LCOV_EXCL_LINE
+
+TEST(UnitTestMacros, TestUNSIGNED_LONG_LONGS_EQUAL)
+{
+    runTestWithMethod(_UNSIGNED_LONG_LONGS_EQUALTestMethod);
+    CHECK_TEST_FAILS_PROPER_WITH_TEXT("expected <1 (0x1) 0x1>");
+    CHECK_TEST_FAILS_PROPER_WITH_TEXT("but was  <0 (0x0) 0x0>");
+}
+
+TEST(UnitTestMacros, UNSIGNED_LONG_LONGS_EQUALBehavesAsProperMacro)
+{
+    if (false) UNSIGNED_LONG_LONGS_EQUAL(1, 0)
+    else UNSIGNED_LONG_LONGS_EQUAL(1, 1)
+}
+
+IGNORE_TEST(UnitTestMacros, UNSIGNED_LONG_LONGS_EQUALWorksInAnIgnoredTest)
+{
+    UNSIGNED_LONG_LONGS_EQUAL(1, 0); // LCOV_EXCL_LINE
+} // LCOV_EXCL_LINE
+
+static void _UNSIGNED_LONG_LONGS_EQUAL_TEXTTestMethod()
+{
+    UNSIGNED_LONG_LONGS_EQUAL_TEXT(1, 0, "Failed because it failed");
+} // LCOV_EXCL_LINE
+
+TEST(UnitTestMacros, TestUNSIGNED_LONG_LONGS_EQUAL_TEXT)
+{
+    runTestWithMethod(_UNSIGNED_LONG_LONGS_EQUAL_TEXTTestMethod);
+    CHECK_TEST_FAILS_PROPER_WITH_TEXT("expected <1 (0x1) 0x1>");
+    CHECK_TEST_FAILS_PROPER_WITH_TEXT("but was  <0 (0x0) 0x0>");
+}
+
+TEST(UnitTestMacros, UNSIGNED_LONG_LONGS_EQUAL_TEXTBehavesAsProperMacro)
+{
+    if (false) UNSIGNED_LONG_LONGS_EQUAL_TEXT(1, 0, "Failed because it failed")
+    else UNSIGNED_LONG_LONGS_EQUAL_TEXT(1, 1, "Failed because it failed")
+}
+
+IGNORE_TEST(UnitTestMacros, UNSIGNED_LONG_LONGS_EQUAL_TEXTWorksInAnIgnoredTest)
+{
+    UNSIGNED_LONG_LONGS_EQUAL_TEXT(1, 0, "Failed because it failed"); // LCOV_EXCL_LINE
+} // LCOV_EXCL_LINE
+
+
+
 static void _failingTestMethodWithCHECK()
 {
     CHECK(false);
